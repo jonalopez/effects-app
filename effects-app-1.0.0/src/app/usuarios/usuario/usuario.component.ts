@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../store/app.reducers';
+import { AppState } from '../../store/app.reducer';
 
 import * as usuarioActions from '../../store/actions';
 import { Usuario } from '../../models/usuario.model';

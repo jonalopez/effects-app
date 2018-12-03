@@ -1,7 +1,7 @@
-// PASO 2 Crear el reducer
-
-import * as fromUsuarios from '../actions';
 import { Usuario } from '../../models/usuario.model';
+import * as fromUsuarios from '../actions';
+
+
 
 export interface UsuariosState {
     users: Usuario[];
@@ -17,7 +17,9 @@ const estadoInicial: UsuariosState = {
     error: null
 };
 
-export function usuariosReducer( state = estadoInicial, action: fromUsuarios.UsuariosAcciones ): UsuariosState {
+
+export function usuariosReducer( state = estadoInicial, action: fromUsuarios.usuariosAcciones ): UsuariosState {
+
 
     switch ( action.type ) {
 
@@ -33,14 +35,14 @@ export function usuariosReducer( state = estadoInicial, action: fromUsuarios.Usu
                 ...state,
                 loading: false,
                 loaded: true,
-                users: [...action.usuarios] // ... Devuelve los elementos asociando la posicion y el valor.
+                users: [...action.usuarios]
             };
 
         case fromUsuarios.CARGAR_USUARIOS_FAIL:
             return {
                 ...state,
-                loading: false,
                 loaded: false,
+                loading: false,
                 error: {
                     status: action.payload.status,
                     message: action.payload.message,
@@ -48,8 +50,12 @@ export function usuariosReducer( state = estadoInicial, action: fromUsuarios.Usu
                 }
             };
 
+
         default:
             return state;
+
     }
+
+
 }
 
